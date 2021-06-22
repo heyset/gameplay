@@ -44,7 +44,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundMain,
+    backgroundColor: theme.colors.secondary80,
   },
   loginSplash: {
     width: '100%',
@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   h1: {
-    color: theme.colors.textHeadings,
+    color: theme.colors.heading,
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 16,
   },
   h2: {
-    color: theme.colors.textHeadings,
+    color: theme.colors.heading,
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 48,    

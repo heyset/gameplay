@@ -26,7 +26,7 @@ export default function ButtonLarge({ iconSrc, callToAction } : IButtonLarge) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: theme.colors.accentMain,
+    backgroundColor: theme.colors.primary,
     width: '100%',
     borderRadius: 8,
     height: 56,
@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRightWidth: 1,
-    borderRightColor: theme.colors.accentMainDarker,
+    borderRightColor: theme.colors.line,
   },
   icon: {
     height: 18,
   },
   callToAction: {
-    color: theme.colors.textHeadings,
+    color: theme.colors.heading,
     flex: 1,
     textAlign: 'center',
   },
