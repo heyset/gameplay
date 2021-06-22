@@ -1,16 +1,20 @@
 import React from 'react';
 
-import { TouchableOpacity, Text, Image, ImageSourcePropType, View, StyleSheet} from 'react-native';
+import { Text, Image, ImageSourcePropType, View, StyleSheet} from 'react-native';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { theme } from '../../global/styles/theme';
 
-interface IButtonLarge {
+interface IButtonLarge extends RectButtonProps {
   iconSrc?: ImageSourcePropType,
   callToAction: string,
 }
 
-export default function ButtonLarge({ iconSrc, callToAction } : IButtonLarge) {
+export default function ButtonLarge({ iconSrc, callToAction, ...rectButtonProps } : IButtonLarge) {
   return (
-    <TouchableOpacity style= { styles.container } activeOpacity={ 0.7 }>
+    <RectButton
+      style={ styles.container }
+      { ...rectButtonProps }
+    >
       { iconSrc
         ? <View style={ styles.iconWrapper }>
             <Image style={ styles.icon } source={ iconSrc } />
@@ -19,7 +23,7 @@ export default function ButtonLarge({ iconSrc, callToAction } : IButtonLarge) {
       <Text style={ styles.callToAction }>
         { callToAction }
       </Text>
-    </TouchableOpacity>
+    </RectButton>
   )
 }
 
