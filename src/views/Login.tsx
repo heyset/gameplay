@@ -1,6 +1,8 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import { theme } from '../global/styles/theme';
 
 import illustrationSrc from '../assets/illustration.png';
@@ -9,6 +11,13 @@ import ButtonLarge from '../components/common/ButtonLarge';
 import Layout from '../components/common/Layout';
 
 export default function Login() {
+  const navigation = useNavigation();
+
+  function handleLogin() {
+    console.log('opa');
+    navigation.navigate('home');
+  }
+
   return (
     <Layout>
       <View style={styles.container}>
@@ -27,6 +36,7 @@ export default function Login() {
           <ButtonLarge
             iconSrc={ discordLogoSrc }
             callToAction="Entrar com o Discord"
+            onPress={ handleLogin }
           />
         </View>
       </View>
