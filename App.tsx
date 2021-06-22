@@ -1,50 +1,42 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { theme } from './src/global/styles/theme';
 
 import illustrationSrc from './src/assets/illustration.png';
 import discordLogoSrc from './src/assets/discord.png';
 import ButtonLarge from './src/components/common/ButtonLarge';
+import Layout from './src/components/common/Layout';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      
-      <Image
-        source={ illustrationSrc }
-        style={ styles.loginSplash }
-      />
-
-      <View style={ styles.loginHero }>
-        <Text style={ styles.h1 }>
-          BORA PRO{`\n`}
-          PLAY
-        </Text>
-
-        <Text style={ styles.h2 }>
-          Conecte-se, organize grupos e marque partidas
-        </Text>
-
-        <ButtonLarge
-          iconSrc={ discordLogoSrc }
-          callToAction="Entrar com o Discord"
+    <Layout>
+      <View style={styles.container}>
+        <Image
+          source={ illustrationSrc }
+          style={ styles.loginSplash }
         />
+        <View style={ styles.loginHero }>
+          <Text style={ styles.h1 }>
+            BORA PRO{`\n`}
+            PLAY
+          </Text>
+          <Text style={ styles.h2 }>
+            Conecte-se, organize grupos e marque partidas
+          </Text>
+          <ButtonLarge
+            iconSrc={ discordLogoSrc }
+            callToAction="Entrar com o Discord"
+          />
+        </View>
       </View>
-
-    </View>
+    </Layout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.secondary80,
   },
   loginSplash: {
     width: '100%',
