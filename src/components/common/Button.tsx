@@ -2,12 +2,13 @@ import React from 'react';
 import { Text, Image, ImageSourcePropType, View, StyleSheet} from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIconsProps } from '../../@types/MaterialCommunityIcons';
 
 import { theme } from '../../global/styles/theme';
 
 interface IButton extends RectButtonProps {
   iconSrc?: ImageSourcePropType;
-  materialIcon?: any;
+  materialIcon?: MaterialCommunityIconsProps['name'];
   size: 'large' | 'small';
   callToAction?: string;
 }

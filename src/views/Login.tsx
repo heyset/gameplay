@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { theme } from '../global/styles/theme';
 
-import illustrationSrc from '../assets/illustration.png';
-import discordLogoSrc from '../assets/discord.png';
+import illustrationSrc from '../assets/img/illustration.png';
+import discordLogoSrc from '../assets/img/discord.png';
 import ButtonLarge from '../components/common/Button';
 import Layout from '../components/common/Layout';
 
@@ -14,7 +14,6 @@ export default function Login() {
   const navigation = useNavigation();
 
   function handleLogin() {
-    console.log('opa');
     navigation.navigate('home');
   }
 
