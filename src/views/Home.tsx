@@ -57,7 +57,6 @@ export default function Home() {
         </ScrollView>
       </View>
 
-
       <View style={ [styles.section, styles.gameplayList] }>
         <GridList
           component={ GameplayCard }
@@ -82,5 +81,7 @@ const styles = StyleSheet.create({
     height: 120,
   },
   gameplayList: {
+    flex: 1,
+    marginBottom: 0,
   }
 });

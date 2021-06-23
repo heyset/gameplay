@@ -7,8 +7,11 @@ import { CategoryId } from '../../assets/ts/categories';
 import Icon from '../common/Icon';
 import Discord from '../../assets/img/discord.png';
 import { theme } from '../../global/styles/theme';
+import PlayerIcon from '../../assets/img/player.svg';
 
-interface IGameplayCard extends RectButtonProps {
+import { dict } from '../../utils/Dictionary';
+
+export interface IGameplayCard extends RectButtonProps {
   id: string | undefined;
   guild: {
     id: string | undefined;
@@ -28,7 +31,7 @@ export default function GameplayCard({ id, guild, category, date, host, ...butto
     >
       <View style={ styles.icon }>
         <Icon
-          source={ Discord }
+          source={ guild.icon ? guild.icon : Discord }
           size="large"
         />
       </View>
@@ -42,7 +45,17 @@ export default function GameplayCard({ id, guild, category, date, host, ...butto
             { date }
           </Text>
         </View>
+
         <View style={ styles.secondaryInfo }>
+          <Text style={ styles.category }>
+            { dict.category[category] }
+          </Text>
+          <View style={ styles.hostContainer }>
+            <PlayerIcon style={ styles.playerIcon } fill={ host ? theme.colors.primary : theme.colors.on } />
+            <Text style={ [styles.host, !host ? styles.guest : null] }>
+              { host ? 'Anfitrião' : 'Convidado' }
+            </Text>
+          </View>
         </View>
       </View>
     </RectButton>
@@ -65,15 +78,39 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   mainInfo: {
-    
+    justifyContent: 'space-evenly',
   },
   secondaryInfo: {
-
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-end',
   },
   guild: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.title700,
+    fontSize: 18,
   },
   date: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.text500,
+    fontSize: 13,
+  },
+  category: {
+    color: theme.colors.heading,
+    fontFamily: theme.fonts.text400,
+    fontSize: 13,
+  },
+  hostContainer: {
+    flexDirection: 'row',
+  },
+  host: {
+    color: theme.colors.primary,
+    fontFamily: theme.fonts.text400,
+    fontSize: 13,
+  },
+  guest: {
+    color: theme.colors.on,
+  },
+  playerIcon: {
+    marginRight: 4,
   }
 });
