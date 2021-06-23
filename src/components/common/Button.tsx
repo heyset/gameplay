@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   },
   callToAction: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.text500,
     flex: 1,
     textAlign: 'center',
   }

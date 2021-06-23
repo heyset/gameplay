@@ -60,12 +60,14 @@ const styles = StyleSheet.create({
   },
   h1: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.title700,
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 16,
   },
   h2: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.text400,
     fontSize: 18,
     textAlign: 'center',
     marginBottom: 48,    

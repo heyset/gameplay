@@ -10,9 +10,9 @@ export default function Home() {
       <View style={ [styles.section, styles.header] }>
         <ProfileCard 
           avatarSrc={{ uri: "https://github.com/heyset.png" }}
-          greeting="Olá, "
+          greeting="Fala, "
           name="Inacio"
-          status="Vamo nessa"
+          status="Vamo nessa?!"
         />
 
         <Button

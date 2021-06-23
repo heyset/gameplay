@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ImageSourcePropType, StyleSheet } from 'react-native';
+import { View, Text, ImageSourcePropType, StyleSheet } from 'react-native';
 
 import Avatar from './Avatar';
 import { theme } from '../../global/styles/theme';
@@ -53,10 +53,12 @@ const styles = StyleSheet.create({
   },
   greeting: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.title500,
     fontSize: 24,
   },
   name: {
     color: theme.colors.heading,
+    fontFamily: theme.fonts.title700,
     fontSize: 24,
   },
   statusContainer: {
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     color: theme.colors.highlight,
+    fontFamily: theme.fonts.text400,
     fontSize: 13,
   },
 });
