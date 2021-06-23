@@ -18,7 +18,7 @@ export default function ProfileCard({ greeting, name, status, avatarSrc } : IPro
       <View style={ styles.avatarContainer }>
         <Icon
           source={ avatarSrc }
-          size="size"
+          size="small"
         />
       </View>
 

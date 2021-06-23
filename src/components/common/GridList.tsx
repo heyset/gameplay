@@ -1,12 +1,20 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
-export default function GridList({ data, component } : any) {
+export default function GridList({ data, component: Component } : any) {
   return(
     <FlatList
+      style={ styles.container }
       data={ data }
-      renderItem={ component }
+      renderItem={ (item) => <Component gameplayData={ item } />}
       keyExtractor={({id}) => id}
+      contentContainerStyle={{ paddingHorizontal: 24 }}
     />
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    
+  },
+});

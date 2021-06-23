@@ -37,22 +37,25 @@ export default function Home() {
         />
       </View>
 
-      <ScrollView
-        horizontal
+      <View
         style={ [styles.section, styles.categorySelect] }
-        showsHorizontalScrollIndicator={ false }
-        contentContainerStyle={{ paddingHorizontal: 24 }}
       >
-        { categories.map((category => (
-          <CategoryCard
-            key={ category.id }
-            category={ category }
-            selected={ category.id === selectedCategory }
-            fade={ (selectedCategory !== null && category.id !== selectedCategory) }
-            onPress={() => toggleSelectedCategory( category.id )}
-            />
-        ))) }
-      </ScrollView>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={ false }
+          contentContainerStyle={{ paddingHorizontal: 24 }}
+        >
+          { categories.map((category => (
+            <CategoryCard
+              key={ category.id }
+              category={ category }
+              selected={ category.id === selectedCategory }
+              fade={ (selectedCategory !== null && category.id !== selectedCategory) }
+              onPress={() => toggleSelectedCategory( category.id )}
+              />
+          ))) }
+        </ScrollView>
+      </View>
 
 
       <View style={ [styles.section, styles.gameplayList] }>
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   categorySelect: {
-    
+    height: 120,
   },
   gameplayList: {
   }
