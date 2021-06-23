@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
 import Layout from '../components/common/Layout';
 import Button from '../components/common/Button';
 import CategoryCard from '../components/common/CategoryCard';
 import ProfileCard from '../components/common/ProfileCard';
 
-import { categories } from '../assets/ts/categories';
+import { categories, CategoryId } from '../assets/ts/categories';
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(null);
+
+  function toggleSelectedCategory(categoryId : CategoryId) {
+    setSelectedCategory((previous) => (
+      previous !== categoryId ? categoryId : null
+    ));
+  }
+
   return (
     <Layout>
       <View style={ [styles.section, styles.header] }>
@@ -31,7 +39,13 @@ export default function Home() {
         contentContainerStyle={{ paddingHorizontal: 24 }}
       >
         { categories.map((category => (
-          <CategoryCard key={ category.id } category={ category } selected={ false } fade={ false } />
+          <CategoryCard
+            key={ category.id }
+            category={ category }
+            selected={ category.id === selectedCategory }
+            fade={ (selectedCategory !== null && category.id !== selectedCategory) }
+            onPress={() => toggleSelectedCategory( category.id )}
+            />
         ))) }
       </ScrollView>
 
