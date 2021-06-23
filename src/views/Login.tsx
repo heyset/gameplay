@@ -7,7 +7,7 @@ import { theme } from '../global/styles/theme';
 
 import illustrationSrc from '../assets/illustration.png';
 import discordLogoSrc from '../assets/discord.png';
-import ButtonLarge from '../components/common/ButtonLarge';
+import ButtonLarge from '../components/common/Button';
 import Layout from '../components/common/Layout';
 
 export default function Login() {
@@ -35,6 +35,7 @@ export default function Login() {
           </Text>
           <ButtonLarge
             iconSrc={ discordLogoSrc }
+            size='large'
             callToAction="Entrar com o Discord"
             onPress={ handleLogin }
           />
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   },
   loginSplash: {
     width: '100%',
-    top: '5%',
+    marginTop: -40,
   },
   loginHero: {
     paddingHorizontal: 50,

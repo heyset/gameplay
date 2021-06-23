@@ -13,7 +13,7 @@ export default function Layout({ children } : ILayout ) {
   return (
     <LinearGradient
       colors={[secondary80, secondary100]}
-      style={{ height: Dimensions.get('window').height }}
+      style={{ height: Dimensions.get('window').height, paddingTop: 60, }}
     >
       <StatusBar
         barStyle="light-content"

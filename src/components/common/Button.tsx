@@ -1,28 +1,43 @@
 import React from 'react';
-
 import { Text, Image, ImageSourcePropType, View, StyleSheet} from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import { theme } from '../../global/styles/theme';
 
-interface IButtonLarge extends RectButtonProps {
-  iconSrc?: ImageSourcePropType,
-  callToAction: string,
+interface IButton extends RectButtonProps {
+  iconSrc?: ImageSourcePropType;
+  materialIcon?: any;
+  size: 'large' | 'small';
+  callToAction?: string;
 }
 
-export default function ButtonLarge({ iconSrc, callToAction, ...rectButtonProps } : IButtonLarge) {
+export default function Button({ iconSrc, callToAction, size, materialIcon, ...rectButtonProps } : IButton) {
+  const buttonSizeStyle = size === 'large' ? styles.large : styles.small;
+
   return (
     <RectButton
-      style={ styles.container }
+      style={ [styles.container, buttonSizeStyle] }
       { ...rectButtonProps }
     >
-      { iconSrc
+      { iconSrc && size === 'large'
         ? <View style={ styles.iconWrapper }>
             <Image style={ styles.icon } source={ iconSrc } />
           </View>
         : null }
-      <Text style={ styles.callToAction }>
-        { callToAction }
-      </Text>
+
+      { materialIcon && size === 'small' ?
+
+        <MaterialCommunityIcons
+          size={24}
+          name={ materialIcon }
+          color={ theme.colors.heading }
+        />
+
+        :
+        <Text style={ [styles.callToAction] }>
+          { callToAction }
+        </Text>}
     </RectButton>
   )
 }
@@ -36,7 +51,14 @@ const styles = StyleSheet.create({
     height: 56,
     alignItems: 'center',
     justifyContent: 'center',
-
+  },
+  large: {
+    width: '100%',
+    height: 56,
+  },
+  small: {
+    height: 48,
+    width: 48,
   },
   iconWrapper: {
     width: 56,
@@ -53,5 +75,5 @@ const styles = StyleSheet.create({
     color: theme.colors.heading,
     flex: 1,
     textAlign: 'center',
-  },
+  }
 });

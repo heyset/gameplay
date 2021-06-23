@@ -1,0 +1,69 @@
+import React from 'react';
+import { View, Text, Image, ImageSourcePropType, StyleSheet } from 'react-native';
+
+import Avatar from './Avatar';
+import { theme } from '../../global/styles/theme';
+
+interface IProfileCard {
+  greeting?: string;
+  name: string;
+  status: string;
+  avatarSrc: ImageSourcePropType;
+}
+
+export default function ProfileCard({ greeting, name, status, avatarSrc } : IProfileCard) {
+  return (
+    <View style={ styles.container }>
+
+      <View style={ styles.avatarContainer }>
+        <Avatar
+          source={ avatarSrc }
+        />
+      </View>
+
+      <View style={ styles.text }>
+        <Text>
+          <Text style={ styles.greeting }>
+            { greeting }
+          </Text>
+          <Text style={ styles.name }>
+            { name }
+          </Text>
+        </Text>
+
+        <View style={ styles.statusContainer }>
+          <Text style={ styles.statusText }>
+            { status.toLowerCase() }
+          </Text>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
+  avatarContainer: {
+    marginRight: 20,
+  },
+  text: {
+
+  },
+  greeting: {
+    color: theme.colors.heading,
+    fontSize: 24,
+  },
+  name: {
+    color: theme.colors.heading,
+    fontSize: 24,
+  },
+  statusContainer: {
+
+  },
+  statusText: {
+    color: theme.colors.highlight,
+    fontSize: 13,
+  },
+});
