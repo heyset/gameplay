@@ -1,4 +1,4 @@
-import { CategoryId } from "../assets/ts/categories";
+import { CategoryId } from "../src/assets/ts/categories";
 
 export const guilds = [
   {

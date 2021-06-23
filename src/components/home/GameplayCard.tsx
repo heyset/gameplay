@@ -1,16 +1,26 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { StyleSheet, View, Text, ImageSourcePropType } from 'react-native';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { CategoryId } from '../../assets/ts/categories';
 
 import Icon from '../common/Icon';
 import Discord from '../../assets/img/discord.png';
 import { theme } from '../../global/styles/theme';
 
-export default function GameplayCard({ gameplayData, ...buttonProps } : any) {
-  const { id, guild, category, date, host } = gameplayData.item;
-  console.log(gameplayData.item);
+interface IGameplayCard extends RectButtonProps {
+  id: string | undefined;
+  guild: {
+    id: string | undefined;
+    name: string;
+    icon: ImageSourcePropType | null;
+  },
+  category: CategoryId;
+  date: string;
+  host: boolean;
+}
 
+export default function GameplayCard({ id, guild, category, date, host, ...buttonProps } : IGameplayCard) {
   return (
     <RectButton
       style={ styles.container }

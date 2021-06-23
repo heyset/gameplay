@@ -10,7 +10,7 @@ import GameplayCard from '../components/home/GameplayCard';
 
 import { categories, CategoryId } from '../assets/ts/categories';
 
-import { guilds, gameplays } from '../tests/mocks';
+import { guilds, gameplays } from '../../tests/mocks';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(null);

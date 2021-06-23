@@ -6,7 +6,7 @@ export default function GridList({ data, component: Component } : any) {
     <FlatList
       style={ styles.container }
       data={ data }
-      renderItem={ (item) => <Component gameplayData={ item } />}
+      renderItem={ (data) => <Component { ...data.item } />}
       keyExtractor={({id}) => id}
       contentContainerStyle={{ paddingHorizontal: 24 }}
     />
