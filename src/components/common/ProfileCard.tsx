@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageSourcePropType, StyleSheet } from 'react-native';
 
-import Avatar from './Avatar';
+import Icon from './Icon';
 import { theme } from '../../global/styles/theme';
 
 interface IProfileCard {
@@ -16,8 +16,9 @@ export default function ProfileCard({ greeting, name, status, avatarSrc } : IPro
     <View style={ styles.container }>
 
       <View style={ styles.avatarContainer }>
-        <Avatar
+        <Icon
           source={ avatarSrc }
+          size="size"
         />
       </View>
 

@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+
 import Layout from '../components/common/Layout';
 import Button from '../components/common/Button';
 import CategoryCard from '../components/common/CategoryCard';
 import ProfileCard from '../components/common/ProfileCard';
+import GridList from '../components/common/GridList';
+import GameplayCard from '../components/home/GameplayCard';
 
 import { categories, CategoryId } from '../assets/ts/categories';
+
+import { guilds, gameplays } from '../tests/mocks';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(null);
@@ -50,8 +55,11 @@ export default function Home() {
       </ScrollView>
 
 
-      <View style={ [styles.section, styles.guildSelect] }>
-
+      <View style={ [styles.section, styles.gameplayList] }>
+        <GridList
+          component={ GameplayCard }
+          data={ gameplays }
+        />
       </View>
     </Layout>
   );
@@ -70,6 +78,6 @@ const styles = StyleSheet.create({
   categorySelect: {
     
   },
-  guildSelect: {
+  gameplayList: {
   }
 });
