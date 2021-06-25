@@ -23,46 +23,43 @@ export default function Home() {
 
   return (
     <Layout>
-      <View style={ [styles.section, styles.header] }>
-        <ProfileCard 
-          avatarSrc={{ uri: "https://github.com/heyset.png" }}
-          greeting="Fala, "
-          name="Inacio"
-          status="Vamo nessa?!"
-        />
-
-        <Button
-          size="small"
-          materialIcon="plus"
-        />
-      </View>
-
-      <View
-        style={ [styles.section, styles.categorySelect] }
-      >
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={ false }
-          contentContainerStyle={{ paddingHorizontal: 24 }}
+        <View style={ [styles.section, styles.header] }>
+          <ProfileCard
+            avatarSrc={{ uri: "https://github.com/heyset.png" }}
+            greeting="Fala, "
+            name="Inacio"
+            status="Vamo nessa?!"
+          />
+          <Button
+            size="small"
+            materialIcon="plus"
+          />
+        </View>
+        <View
+          style={ [styles.section, styles.categorySelect] }
         >
-          { categories.map((category => (
-            <CategoryCard
-              key={ category.id }
-              category={ category }
-              selected={ category.id === selectedCategory }
-              fade={ (selectedCategory !== null && category.id !== selectedCategory) }
-              onPress={() => toggleSelectedCategory( category.id )}
-              />
-          ))) }
-        </ScrollView>
-      </View>
-
-      <View style={ [styles.section, styles.gameplayList] }>
-        <GridList
-          component={ GameplayCard }
-          data={ gameplays }
-        />
-      </View>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={ false }
+            contentContainerStyle={{ paddingHorizontal: 24 }}
+          >
+            { categories.map((category => (
+              <CategoryCard
+                key={ category.id }
+                category={ category }
+                selected={ category.id === selectedCategory }
+                fade={ (selectedCategory !== null && category.id !== selectedCategory) }
+                onPress={() => toggleSelectedCategory( category.id )}
+                />
+            ))) }
+          </ScrollView>
+        </View>
+        <View style={ [styles.section, styles.gameplayList] }>
+          <GridList
+            component={ GameplayCard }
+            data={ gameplays }
+          />
+        </View>
     </Layout>
   );
 }
@@ -83,5 +80,6 @@ const styles = StyleSheet.create({
   gameplayList: {
     flex: 1,
     marginBottom: 0,
+    paddingHorizontal: 24,
   }
 });
