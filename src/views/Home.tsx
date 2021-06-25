@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <View>
         <View style={ [styles.section, styles.header] }>
           <ProfileCard
             avatarSrc={{ uri: "https://github.com/heyset.png" }}
@@ -61,7 +60,6 @@ export default function Home() {
             data={ gameplays }
           />
         </View>
-      </View>
     </Layout>
   );
 }

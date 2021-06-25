@@ -28,14 +28,14 @@ export interface IGameplayCard extends RectButtonProps {
 export default function GameplayCard({ id, guild, category, date, host, ...buttonProps } : IGameplayCard) {
   const navigation = useNavigation();
 
-  // function handleOpenDetails() {
-  //   navigation.navigate('gameplayDetails');
-  // }
+  function handleOpenDetails() {
+    navigation.navigate('gameplayDetails');
+  }
 
   return (
     <RectButton
       style={ styles.container }
-      // onPress={ handleOpenDetails }
+      onPress={ handleOpenDetails }
       { ...buttonProps }
     >
       <View style={ styles.icon }>
