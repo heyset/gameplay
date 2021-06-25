@@ -5,10 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 
 import { theme } from '../global/styles/theme';
 
+import Layout from '../components/common/Layout';
+
 import illustrationSrc from '../assets/img/illustration.png';
 import discordLogoSrc from '../assets/img/discord.png';
 import ButtonLarge from '../components/common/Button';
-import Layout from '../components/common/Layout';
 
 export default function Login() {
   const navigation = useNavigation();

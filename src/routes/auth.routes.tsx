@@ -5,6 +5,7 @@ import { theme } from '../global/styles/theme';
 
 import Login from '../views/Login';
 import Home from '../views/Home';
+import GameplayDetails from '../views/GameplayDetails';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -26,6 +27,11 @@ export default function AuthRoutes() {
       <Screen 
         name="home"
         component={ Home }
+      />
+
+      <Screen
+        name="gameplayDetails"
+        component={ GameplayDetails }
       />
     </Navigator>
   )

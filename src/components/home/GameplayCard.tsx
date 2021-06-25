@@ -9,6 +9,7 @@ import { theme } from '../../global/styles/theme';
 import PlayerIcon from '../../assets/img/player.svg';
 
 import { dict } from '../../utils/Dictionary';
+import { useNavigation } from '@react-navigation/native';
 
 const Discord = { uri: 'https://gamerssuffice.com/wp-content/uploads/2019/11/How-to-add-bots-to-discord-500x405.jpg' }
 
@@ -25,9 +26,16 @@ export interface IGameplayCard extends RectButtonProps {
 }
 
 export default function GameplayCard({ id, guild, category, date, host, ...buttonProps } : IGameplayCard) {
+  const navigation = useNavigation();
+
+  function handleOpenDetails() {
+    navigation.navigate('gameplayDetails');
+  }
+
   return (
     <RectButton
       style={ styles.container }
+      onPress={ handleOpenDetails }
       { ...buttonProps }
     >
       <View style={ styles.icon }>
