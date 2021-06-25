@@ -8,7 +8,7 @@ export default function GridList({ data, component: Component } : any) {
     <FlatList
       style={ styles.container }
       data={ data }
-      renderItem={ (data) => <Component { ...data.item } />}
+      renderItem={ ({ item }) => <Component { ...item } />}
       keyExtractor={({id}) => id}
       contentContainerStyle={{ paddingHorizontal: 24 }}
       showsVerticalScrollIndicator={ false }

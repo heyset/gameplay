@@ -5,11 +5,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { CategoryId } from '../../assets/ts/categories';
 
 import Icon from '../common/Icon';
-import Discord from '../../assets/img/discord.png';
 import { theme } from '../../global/styles/theme';
 import PlayerIcon from '../../assets/img/player.svg';
 
 import { dict } from '../../utils/Dictionary';
+
+const Discord = { uri: 'https://gamerssuffice.com/wp-content/uploads/2019/11/How-to-add-bots-to-discord-500x405.jpg' }
 
 export interface IGameplayCard extends RectButtonProps {
   id: string | undefined;
