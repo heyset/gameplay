@@ -80,5 +80,6 @@ const styles = StyleSheet.create({
   gameplayList: {
     flex: 1,
     marginBottom: 0,
+    paddingHorizontal: 24,
   }
 });

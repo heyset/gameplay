@@ -10,7 +10,6 @@ export default function GridList({ data, component: Component } : any) {
       data={ data }
       renderItem={ ({ item }) => <Component { ...item } />}
       keyExtractor={({id}) => id}
-      contentContainerStyle={{ paddingHorizontal: 24 }}
       showsVerticalScrollIndicator={ false }
     />
   );
