@@ -11,9 +11,13 @@ import GameplayCard from '../components/home/GameplayCard';
 import { categories, CategoryId } from '../assets/ts/categories';
 
 import { guilds, gameplays } from '../../tests/mocks';
+import { useNavigation } from '@react-navigation/native';
+import CategorySelect from '../components/common/CategorySelect';
+
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(null);
+  const navigator = useNavigation();
 
   function toggleSelectedCategory(categoryId : CategoryId) {
     setSelectedCategory((previous) => (
@@ -33,26 +37,16 @@ export default function Home() {
           <Button
             size="small"
             materialIcon="plus"
+            onPress={ () => navigator.navigate('newGameplay')}
           />
         </View>
         <View
-          style={ [styles.section, styles.categorySelect] }
+          style={ styles.section }
         >
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={ false }
-            contentContainerStyle={{ paddingHorizontal: 24 }}
-          >
-            { categories.map((category => (
-              <CategoryCard
-                key={ category.id }
-                category={ category }
-                selected={ category.id === selectedCategory }
-                fade={ (selectedCategory !== null && category.id !== selectedCategory) }
-                onPress={() => toggleSelectedCategory( category.id )}
-                />
-            ))) }
-          </ScrollView>
+          <CategorySelect
+            toggleSelectedCategory={ toggleSelectedCategory }
+            selectedCategory={ selectedCategory }
+          />
         </View>
         <View style={ [styles.section, styles.gameplayList] }>
           <GridList
