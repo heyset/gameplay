@@ -3,8 +3,10 @@ import { Image, ImageSourcePropType, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '../../global/styles/theme';
 
+import emptySrc from '../../assets/img/empty.png';
+
 interface IIcon {
-  source: ImageSourcePropType;
+  source?: ImageSourcePropType;
   size: 'small' | 'large';
 }
 
@@ -18,7 +20,7 @@ export default function Icon({ source, size } : IIcon) {
       style={ [styles.container, containerSize] }
     >
       <Image
-        source={ source }
+        source={ source ? source : emptySrc }
         style={ [styles.image, iconSize] }
       />
     </LinearGradient>
